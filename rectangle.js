@@ -3,10 +3,12 @@ const row = function (length) {
 }
 
 const rectangle = function (width, height) {
-  if (height == 1) {
-    return row(width);
+  let rectangle = row(width);
+
+  for (let i = 1; i < height; i++) {
+    rectangle += "\n" + row(width); 
   }
-  return row(width) + "\n" + rectangle(width, height - 1);
+  return rectangle;
 }
 
 console.log(rectangle(4, 4));
